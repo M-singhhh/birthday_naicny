@@ -114,3 +114,71 @@ body {
 #copyright a {
     color: #666
 }
+
+#musicToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid #ddd8b8;
+    background: #fffdf0;
+    color: #666;
+    font-size: 18px;
+    font-family: "sans-serif";
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#musicToggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    background: #fff8d6;
+}
+
+#musicToggle:active {
+    transform: scale(0.96);
+}
+
+#musicToggle.playing .musicIcon {
+    animation: musicPulse 1.2s ease-in-out infinite;
+}
+
+#musicToggle .musicIcon {
+    display: inline-block;
+    line-height: 1;
+}
+
+@keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+#musicHint {
+    position: fixed;
+    bottom: 30px;
+    right: 74px;
+    background: #fffdf0;
+    border: 1px solid #ddd8b8;
+    color: #666;
+    font-family: "sans-serif";
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#musicHint.show {
+    opacity: 1;
+}
